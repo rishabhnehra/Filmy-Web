@@ -9,12 +9,10 @@ class NowPlaying extends Component {
     }
 
     render() {
-        const { data, isFetching, error } = this.props.nowPlaying
+        const { data } = this.props.nowPlaying
         return (
             <Fragment>
                 <h1>Now Playing</h1>
-                {isFetching && <progress></progress>}
-                {error && <p>ERROR: {error}</p>}
                 {data.results && <ul>
                     {data.results.map((result, index) =>
                         <li key={index}>
@@ -27,7 +25,8 @@ class NowPlaying extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    nowPlaying: state.nowPlaying
+    nowPlaying: state.nowPlaying,
+    fetching: state.fetching
 })
 
 const mapActionsToProps = (dispatch) => ({

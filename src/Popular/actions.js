@@ -1,3 +1,8 @@
+import { 
+    fetchingData, 
+    fetchDataFail, 
+    fetchDataSuccessful } from '../Fetching/actions'
+
 const getPopularList = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
 
 export const FETCH_POPULAR = "FETCH_POPULAR"
@@ -6,30 +11,35 @@ export const FETCH_POPULAR_FAILURE = "FETCH_POPULAR_FAILURE"
 
 export const fetchPopular = () => ({
     type: FETCH_POPULAR,
-    isFetching: true
 })
 
 export const fetchPopularSuccess = (data) => ({
     type: FETCH_POPULAR_SUCCESS,
     data,
-    isFetching: false
+
 })
 
-export const fetchPopularFailure = (error) => ({
+export const fetchPopularFailure = (message) => ({
     type: FETCH_POPULAR_FAILURE,
-    error,
-    isFetching: false
+    data: message
 })
 
 export const getPopular = () => {
     return dispatch => {
+        dispatch(fetchingData())
         dispatch(fetchPopular())
         fetch(getPopularList)
             .then(response => {
                 if(response.ok) return response.json()
                 throw new Error(response.statusText)
             })
-            .then(data => dispatch(fetchPopularSuccess(data)))
-            .catch(error => dispatch(fetchPopularFailure(error)))
+            .then(data => {
+                dispatch(fetchDataSuccessful())
+                dispatch(fetchPopularSuccess(data))
+            })
+            .catch(error => {
+                dispatch(fetchDataFail(error))
+                dispatch(fetchPopularFailure(error))
+            })
     }
 }

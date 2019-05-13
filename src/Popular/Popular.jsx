@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { Snackbar } from '@material/react-snackbar'
+import '@material/react-snackbar/dist/snackbar.css';
+
 import { getPopular } from './actions'
 
 class Popular extends Component {
@@ -9,25 +12,26 @@ class Popular extends Component {
     }
 
     render() {
-        const { data, isFetching, error } = this.props.popular
+        const { data } = this.props.popular
+        const { isFetching, message } = this.props.fetching
         return (
             <div>
                 <h1>Popular</h1>
-                {isFetching && <progress></progress>}
-                {error && <p>ERROR: {error}</p>}
                 {data.results && <ul>
                     {data.results.map((result, index) =>
                         <li key={index}>
                             <h2>{result.title}</h2>
                         </li>)}
                 </ul>}
+                {isFetching && <Snackbar message={message} />}
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    popular: state.popular
+    popular: state.popular,
+    fetching: state.fetching
 })
 
 const mapActionsToProps = (dispatch) => ({

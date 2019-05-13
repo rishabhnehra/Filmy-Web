@@ -10,18 +10,24 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './index.css'
 import App from './App'
 import Popular from './Popular/Popular'
-import { popularReducer } from './Popular/reducer'
 import NowPlaying from './NowPlaying/NowPlaying'
-import { nowPlayingReducer } from './NowPlaying/reducer'
 import UpComing from './UpComing/UpComing'
-import { upComingReducer } from './UpComing/reducer'
+import Movie from './Movie/Movie'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import { popularReducer } from './Popular/reducer'
+import { nowPlayingReducer } from './NowPlaying/reducer'
+import { upComingReducer } from './UpComing/reducer'
+import { fetchingReducer } from './Fetching/reducer'
+import { movieReducer } from './Movie/reducer'
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 }) || compose;
 
 const reducers = combineReducers({
     popular: popularReducer,
     nowPlaying: nowPlayingReducer,
-    upComing: upComingReducer
+    upComing: upComingReducer,
+    fetching: fetchingReducer,
+    movie: movieReducer
 })
 
 const store = createStore(reducers, composeEnhancers(
@@ -35,6 +41,7 @@ ReactDOM.render(
             <Route exact path="/popular" component={Popular} />
             <Route exact path="/now_playing" component={NowPlaying} />
             <Route exact path="/upcoming" component={UpComing} />
+            <Route exact path="/movie/:id" component={Movie}/>
         </Router>
     </Provider>, document.getElementById('root'));
 

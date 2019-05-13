@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     isFetching: false,
-    error: null,
+    message: null,
     data: []
 }
 
@@ -14,20 +14,16 @@ export const upComingReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_UP_COMING:
             return {
-                ...state,
-                isFetching: action.isFetching
+                ...state
             }
         case FETCH_UP_COMING_SUCCESS:
             return {
                 ...state,
-                isFetching: action.isFetching,
                 data: action.data,
             }
         case FETCH_UP_COMING_FAILURE:
             return {
-                ...state,
-                isFetching: action.isFetching,
-                error: action.error
+                ...state
             }
         default:
             return state

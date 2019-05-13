@@ -9,11 +9,12 @@ class UpComing extends Component {
     }
 
     render() {
-        const { data, isFetching, error } = this.props.upComing
+        const { data } = this.props.upComing
+        const { isFetching, error } = this.props.fetching
         return (
             <Fragment>
                 <h1>Up Coming</h1>
-                {isFetching && <progress></progress>}
+                {isFetching && <progress>LOADING...</progress>}
                 {error && <p>ERROR: {error}</p>}
                 {data.results && <ul>
                     {data.results.map((result, index) =>
@@ -27,7 +28,8 @@ class UpComing extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    upComing: state.upComing
+    upComing: state.upComing,
+    fetching: state.isFetching
 })
 
 const mapActionsToProps = (dispatch) => ({
