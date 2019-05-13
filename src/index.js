@@ -13,6 +13,7 @@ import Popular from './Popular/Popular'
 import NowPlaying from './NowPlaying/NowPlaying'
 import UpComing from './UpComing/UpComing'
 import Movie from './Movie/Movie'
+import Person from './Person/Persona'
 
 import { popularReducer } from './Popular/reducer'
 import { nowPlayingReducer } from './NowPlaying/reducer'
@@ -42,6 +43,7 @@ ReactDOM.render(
             <Route exact path="/now_playing" component={NowPlaying} />
             <Route exact path="/upcoming" component={UpComing} />
             <Route exact path="/movie/:id" component={Movie}/>
+            <Route exact path="/person/:id" component={Person} />
         </Router>
     </Provider>, document.getElementById('root'));
 
