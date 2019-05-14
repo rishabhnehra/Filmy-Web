@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPerson, getPersonMovieCredits } from './actions';
 import { Snackbar } from '@material/react-snackbar'
+import { Link } from 'react-router-dom'
+
+import { getPerson, getPersonMovieCredits } from './actions';
+
 import '@material/react-snackbar/dist/snackbar.css';
 
 class Person extends Component {
 
     componentDidMount() {
-        const { id } = this.props.match.params.id
+        const { id } = this.props.match.params
         this.props.getPerson(id)
         this.props.getPersonMovieCredits(id)
     }
@@ -22,7 +25,7 @@ class Person extends Component {
                 <p>{details.birthday}</p>
                 <p>{details.biography}</p>
                 <ul>
-                    {movie_credits && movie_credits.cast.map(cast => <li>{cast}</li>)}
+                    {movie_credits.cast && movie_credits.cast.map(cast => <Link to={`/movie/${cast.id}`}><li>{cast.title} - {cast.character}</li></Link>)}
                 </ul>
                 {isFetching && <Snackbar message={message} />}
                 {message && <Snackbar message={message}/>}

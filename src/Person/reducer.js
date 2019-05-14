@@ -12,7 +12,7 @@ const initialState = {
     movie_credits: {}
 }
 
-export const personReducer = (state = {}, action) => {
+export const personReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_PERSON_ID:
             return state

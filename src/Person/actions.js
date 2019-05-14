@@ -64,18 +64,18 @@ export const getPerson = (id) => {
 export const getPersonMovieCredits = (id) => {
     return (dispatch) => {
         dispatch(fetchingData())
-        dispatch(fetchCredits())
+        dispatch(fetchPersonMovieCredits())
         fetch(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
             .then(response => {
                 if (response.ok) return response.json()
                 return Promise.reject(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
-                dispatch(fetchCreditsSuccess(data))
+                dispatch(fetchPersonMovieCreditsSuccess(data))
                 dispatch(fetchDataSuccessful())
             })
             .catch(error => {
-                dispatch(fetchCreditsFail(error))
+                dispatch(fetchPersonMovieCreditsFail(error))
                 dispatch(fetchDataFail(error))
             })
     }

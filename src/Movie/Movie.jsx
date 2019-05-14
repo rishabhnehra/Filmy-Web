@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getMovie, getCredtis, getSimilar } from './actions'
 import { Snackbar } from '@material/react-snackbar'
 import '@material/react-snackbar/dist/snackbar.css';
@@ -43,7 +44,7 @@ class Movie extends Component {
                     </ul>
                     <h2>Cast</h2>
                     <ul>
-                        {credits.cast && credits.cast.map((cast => <li key={cast.id}>{cast.name}</li>))}
+                        {credits.cast && credits.cast.map((cast => <Link to={`/person/${cast.id}`}><li key={cast.id}>{cast.name}</li></Link>))}
                     </ul>
                     <h2>Crew</h2>
                     <ul>
