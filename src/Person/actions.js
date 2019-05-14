@@ -3,7 +3,6 @@ import {
     fetchDataSuccessful,
     fetchDataFail
 } from "../Fetching/actions";
-import { fetchCredits, fetchCreditsSuccess, fetchCreditsFail } from "../Movie/actions";
 
 export const FETCH_PERSON_ID = "FETCH_PERSON_ID"
 export const FETCH_PERSON_ID_SUCCESS = "FETCH_PERSON_ID_SUCCESS"
