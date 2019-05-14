@@ -4,8 +4,6 @@ import {
     fetchDataFail
 } from '../Fetching/actions'
 
-const getMovieID = "https://api.themoviedb.org/3/movie/"
-
 export const FETCH_MOVIE_ID = "FETCH_MOVIE_ID"
 export const FETCH_MOVIE_ID_SUCCESS = "FETCH_MOVIE_ID_SUCCESS"
 export const FETCH_MOVIE_ID_FAIL = "FETCH_MOVIE_ID_FAIL"
