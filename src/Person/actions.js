@@ -1,0 +1,42 @@
+import { 
+    fetchingData, 
+    fetchDataSuccessful, 
+    fetchDataFail } from "../Fetching/actions";
+
+export const FETCH_PERSON_ID = "FETCH_PERSON_ID"
+export const FETCH_PERSON_ID_SUCCESS = "FETCH_PERSON_ID_SUCCESS"
+export const FETCH_PERSON_ID_FAIL = "FETCH_PERSON_ID_FAIL"
+
+export const fetchPerson = () => ({
+    type: FETCH_PERSON_ID
+})
+
+export const fetchPersonSuccess = (data) => ({
+    type: FETCH_PERSON_ID_SUCCESS,
+    data
+})
+
+export const fetchPersonFail = (error) => ({
+    type: FETCH_PERSON_ID_FAIL,
+    error
+})
+
+export const getPerson = (id) => {
+    return (dispatch) => {
+        dispatch(fetchingData())
+        dispatch(fetchPerson())
+        fetch(`https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        .then(response => {
+            if (response.ok) return response.json()
+            return Promise.reject(`Error ${response.status} : ${response.statusText}`)
+        })
+        .then(data => {
+            dispatch(fetchPersonSuccess(data))
+            dispatch(fetchDataSuccessful())
+        })
+        .catch(error => {
+            dispatch(fetchPersonFail(error))
+            dispatch(fetchDataFail(error))
+        })
+    }
+}

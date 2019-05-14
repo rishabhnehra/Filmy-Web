@@ -20,6 +20,7 @@ import { nowPlayingReducer } from './NowPlaying/reducer'
 import { upComingReducer } from './UpComing/reducer'
 import { fetchingReducer } from './Fetching/reducer'
 import { movieReducer } from './Movie/reducer'
+import { personReducer } from './Person/reducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 }) || compose;
 
@@ -28,7 +29,8 @@ const reducers = combineReducers({
     nowPlaying: nowPlayingReducer,
     upComing: upComingReducer,
     fetching: fetchingReducer,
-    movie: movieReducer
+    movie: movieReducer,
+    person: personReducer
 })
 
 const store = createStore(reducers, composeEnhancers(
