@@ -13,7 +13,7 @@ import Popular from './Popular/Popular'
 import NowPlaying from './NowPlaying/NowPlaying'
 import UpComing from './UpComing/UpComing'
 import Movie from './Movie/Movie'
-import Person from './Person/Persona'
+import Person from './Person/Person'
 
 import { popularReducer } from './Popular/reducer'
 import { nowPlayingReducer } from './NowPlaying/reducer'

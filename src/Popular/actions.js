@@ -31,7 +31,7 @@ export const getPopular = () => {
         fetch(getPopularList)
             .then(response => {
                 if(response.ok) return response.json()
-                throw new Error(response.statusText)
+                return Promise.reject(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
                 dispatch(fetchDataSuccessful())

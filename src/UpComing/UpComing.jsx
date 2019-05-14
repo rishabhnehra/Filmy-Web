@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { getUpComing } from './actions'
+import { Snackbar } from '@material/react-snackbar'
+import '@material/react-snackbar/dist/snackbar.css';
+
 
 class UpComing extends Component {
 
@@ -10,18 +13,18 @@ class UpComing extends Component {
 
     render() {
         const { data } = this.props.upComing
-        const { isFetching, error } = this.props.fetching
+        const { isFetching, message } = this.props.fetching
         return (
             <Fragment>
                 <h1>Up Coming</h1>
-                {isFetching && <progress>LOADING...</progress>}
-                {error && <p>ERROR: {error}</p>}
                 {data.results && <ul>
                     {data.results.map((result, index) =>
                         <li key={index}>
                             <h2>{result.title}</h2>
                         </li>)}
                 </ul>}
+                {isFetching && <Snackbar message={message} />}
+                {message && <Snackbar message={message} />}
             </Fragment>
         )
     }
@@ -29,7 +32,7 @@ class UpComing extends Component {
 
 const mapStateToProps = (state) => ({
     upComing: state.upComing,
-    fetching: state.isFetching
+    fetching: state.fetching
 })
 
 const mapActionsToProps = (dispatch) => ({

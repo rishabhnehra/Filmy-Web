@@ -14,6 +14,7 @@ class Popular extends Component {
     render() {
         const { data } = this.props.popular
         const { isFetching, message } = this.props.fetching
+        console.log(message)
         return (
             <div>
                 <h1>Popular</h1>
@@ -24,6 +25,7 @@ class Popular extends Component {
                         </li>)}
                 </ul>}
                 {isFetching && <Snackbar message={message} />}
+                {message && <Snackbar message={message}/>}
             </div>
         )
     }
