@@ -16,7 +16,6 @@ class NowPlaying extends Component {
         const { isFetching, message} = this.props.fetching
         return (
             <Fragment>
-                <h1>Now Playing</h1>
                 {data.results &&
                 <ul>
                     {data.results.map((result, index) =>

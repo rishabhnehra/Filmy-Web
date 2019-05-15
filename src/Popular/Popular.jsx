@@ -17,7 +17,6 @@ class Popular extends Component {
         console.log(message)
         return (
             <div>
-                <h1>Popular</h1>
                 {data.results && <ul>
                     {data.results.map((result, index) =>
                         <li key={index}>

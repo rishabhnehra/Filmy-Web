@@ -16,7 +16,6 @@ class UpComing extends Component {
         const { isFetching, message } = this.props.fetching
         return (
             <Fragment>
-                <h1>Up Coming</h1>
                 {data.results && <ul>
                     {data.results.map((result, index) =>
                         <li key={index}>
