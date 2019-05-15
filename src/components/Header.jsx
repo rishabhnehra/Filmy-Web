@@ -7,7 +7,7 @@ import TopAppBar, {
     TopAppBarFixedAdjust
 } from '@material/react-top-app-bar'
 import MaterialIcon from '@material/react-material-icon'
-// import LinearProgress from '@material/react-linear-progress'
+import LinearProgress from '@material/react-linear-progress'
 import { connect } from 'react-redux'
 
 import logo from '../assets/logo.png'
