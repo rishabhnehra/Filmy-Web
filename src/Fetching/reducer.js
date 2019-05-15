@@ -23,7 +23,7 @@ export const fetchingReducer = (state = initialState, { type, message }) => {
             }
         case FETCH_DATA_FAIL:
             return {
-                isFetching: true,
+                isFetching: false,
                 message
             }
         default:
