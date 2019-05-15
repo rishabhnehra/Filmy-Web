@@ -27,7 +27,11 @@ import '@material/react-tab-scroller/dist/tab-scroller.css';
 class Header extends Component {
 
     state = {
-        activeIndex: 0
+        activeIndex: 0,
+    }
+
+    componentDidMount = () => {
+        this.props.history.push('/popular')
     }
 
     handleActiveIndexUpdate = (activeIndex) => this.setState({ activeIndex })
@@ -64,10 +68,10 @@ class Header extends Component {
                     <Tab onClick={() => this.props.history.push('/popular')}>
                         <span className='mdc-tab__text-label'>Popular</span>
                     </Tab>
-                    <Tab onInteraction={(e) => console.log(e)} onClick={() => this.props.history.push('/now_playing')}>
+                    <Tab onClick={() => this.props.history.push('/now_playing')}>
                         <span className='mdc-tab__text-label'>Now Playing</span>
                     </Tab>
-                    <Tab onInteraction={(e) => console.log(e)} onClick={() => this.props.history.push('/upcoming')}>
+                    <Tab onClick={() => this.props.history.push('/upcoming')}>
                         <span className='mdc-tab__text-label'>Upcoming</span>
                     </Tab>
                 </TabBar>

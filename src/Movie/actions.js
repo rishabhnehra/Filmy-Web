@@ -65,7 +65,7 @@ export const getMovie = (id) => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
             .then(response => {
                 if(response.ok) return response.json()
-                return Promise.reject(`Error ${response.status} : ${response.statusText}`)
+                throw new Error(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
                 dispatch(fetchDataSuccessful())
@@ -85,7 +85,7 @@ export const getCredtis = (id) => {
         fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
             .then(response => {
                 if(response.ok) return response.json()
-                return Promise.reject(`Error ${response.status} : ${response.statusText}`)
+                throw new Error(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
                 dispatch(fetchCreditsSuccess(data))
@@ -105,7 +105,7 @@ export const getSimilar = (id) => {
         fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
             .then(response => {
                 if (response.ok) return response.json()
-                return Promise.reject(`Error ${response.status} : ${response.statusText}`)
+                throw new Error(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
                 dispatch(fetchSimilarSuccess(data))

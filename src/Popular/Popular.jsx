@@ -14,7 +14,6 @@ class Popular extends Component {
     render() {
         const { data } = this.props.popular
         const { isFetching, message } = this.props.fetching
-        console.log(message)
         return (
             <div>
                 {data.results && <ul>

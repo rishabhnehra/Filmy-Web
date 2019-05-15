@@ -15,5 +15,5 @@ export const fetchDataSuccessful = () => ({
 
 export const fetchDataFail = (error) => ({
     type: FETCH_DATA_FAIL,
-    message: error
+    message: error.message
 })

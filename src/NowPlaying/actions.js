@@ -35,7 +35,7 @@ export const getNowPlaying = () => {
         fetch(getNowPlayingList)
             .then(response => {
                 if(response.ok) return response.json()
-                return Promise.reject(`Error ${response.status} : ${response.statusText}`)
+                throw new Error(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
                 dispatch(fetchDataSuccessful())
