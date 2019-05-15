@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Snackbar } from '@material/react-snackbar'
 import { Link } from 'react-router-dom'
@@ -20,7 +21,7 @@ class Person extends Component {
         const { isFetching, message } = this.props.fetching
         return(
             <div>
-                <img src={`https://image.tmdb.org/t/p/w500/${details.profile_path}`}></img>
+                {details.profile_path && <img src={`https://image.tmdb.org/t/p/w500/${details.profile_path}`}></img>}
                 <h3>{details.name}</h3>
                 <p>{details.birthday}</p>
                 <p>{details.biography}</p>
@@ -43,5 +44,18 @@ const mapActionToProps = (dispatch) => ({
     getPerson: (id) => dispatch(getPerson(id)),
     getPersonMovieCredits : (id) => dispatch(getPersonMovieCredits(id))
 })
+
+Person.propTypes = {
+    person: PropTypes.shape({
+        details: PropTypes.object,
+        movie_credits: PropTypes.object
+    }),
+    fetching: PropTypes.shape({
+        isFetching: PropTypes.bool,
+        message: PropTypes.string
+    }),
+    getPerson: PropTypes.func,
+    getPersonMovieCredits: PropTypes.func
+}
 
 export default connect(mapStateToProps, mapActionToProps)(Person)

@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 // import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-
 import ReduxThunk from 'redux-thunk'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import './index.css'
-import App from './App'
+
+import Header from './components/Header'
 import Popular from './Popular/Popular'
 import NowPlaying from './NowPlaying/NowPlaying'
 import UpComing from './UpComing/UpComing'
@@ -39,12 +39,12 @@ const store = createStore(reducers, composeEnhancers(
 
 ReactDOM.render(
     <Provider store={store} >
+        <Header />
         <Router>
-            <Route path="/" component={App} />
             <Route exact path="/popular" component={Popular} />
             <Route exact path="/now_playing" component={NowPlaying} />
             <Route exact path="/upcoming" component={UpComing} />
-            <Route exact path="/movie/:id" component={Movie}/>
+            <Route exact path="/movie/:id" component={Movie} />
             <Route exact path="/person/:id" component={Person} />
         </Router>
     </Provider>, document.getElementById('root'));
