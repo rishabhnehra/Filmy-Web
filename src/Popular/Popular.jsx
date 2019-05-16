@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Snackbar } from '@material/react-snackbar'
+import { Grid, Cell, Row } from '@material/react-layout-grid'
+import Card, { CardMedia } from '@material/react-card'
+
 import '@material/react-snackbar/dist/snackbar.css';
+import '@material/react-layout-grid/dist/layout-grid.css';
 
 import { getPopular } from './actions'
 
@@ -16,14 +20,16 @@ class Popular extends Component {
         const { isFetching, message } = this.props.fetching
         return (
             <div>
-                {data.results && <ul>
-                    {data.results.map((result, index) =>
-                        <li key={index}>
-                            <h2>{result.title}</h2>
-                        </li>)}
-                </ul>}
+                <Grid>
+                    <Row>
+                        {data.results && data.results.map(result =>
+                            <Cell className="rowTest" desktopColumns={3} phoneColumns={2} tabletColumns={2}>
+                                <img className="circle" src={`https://image.tmdb.org/t/p/w200/${result.poster_path}`} />
+                            </Cell>)}
+                    </Row>
+                </Grid>
                 {isFetching && <Snackbar message={message} />}
-                {message && <Snackbar message={message}/>}
+                {message && <Snackbar message={message} />}
             </div>
         )
     }
