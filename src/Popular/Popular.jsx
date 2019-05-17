@@ -23,8 +23,8 @@ class Popular extends Component {
                 <Grid>
                     <Row>
                         {data.results && data.results.map(result =>
-                            <Cell className="rowTest" desktopColumns={3} phoneColumns={2} tabletColumns={2}>
-                                <img className="circle" src={`https://image.tmdb.org/t/p/w200/${result.poster_path}`} />
+                            <Cell className="flex flex-center" columns={2}>
+                                <img src={`https://image.tmdb.org/t/p/w300/${result.poster_path}`} />
                             </Cell>)}
                     </Row>
                 </Grid>

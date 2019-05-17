@@ -13,15 +13,14 @@ code {
     monospace;
 }
 
-.rowTest {
+.flex {
   display: flex;
+}
+
+.flex-center {
   justify-content: center;
 }
 
 img {
-  max-width: 200px;
-  max-height: 300px;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
+  border-radius: 6px;
+} 
