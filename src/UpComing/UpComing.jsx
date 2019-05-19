@@ -4,6 +4,7 @@ import { getUpComing } from './actions'
 import { Snackbar } from '@material/react-snackbar'
 import '@material/react-snackbar/dist/snackbar.css';
 
+import MovieGrid from '../components/MovieGrid'
 
 class UpComing extends Component {
 
@@ -16,12 +17,7 @@ class UpComing extends Component {
         const { isFetching, message } = this.props.fetching
         return (
             <Fragment>
-                {data.results && <ul>
-                    {data.results.map((result, index) =>
-                        <li key={index}>
-                            <h2>{result.title}</h2>
-                        </li>)}
-                </ul>}
+                <MovieGrid data={data} />
                 {isFetching && <Snackbar message={message} />}
                 {message && <Snackbar message={message} />}
             </Fragment>

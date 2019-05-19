@@ -20,14 +20,6 @@ class Popular extends Component {
         const { isFetching, message } = this.props.fetching
         return (
             <div>
-                {/* <Grid>
-                    <Row>
-                        {data.results && data.results.map(result =>
-                            <Cell className="flex flex-center" columns={2}>
-                                <img src={`https://image.tmdb.org/t/p/w300/${result.poster_path}`} />
-                            </Cell>)}
-                    </Row>
-                </Grid> */}
                 <MovieGrid data={data} />
                 {isFetching && <Snackbar message={message} />}
                 {message && <Snackbar message={message} />}
