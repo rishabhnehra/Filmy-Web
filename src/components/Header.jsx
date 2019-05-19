@@ -11,7 +11,6 @@ import TabBar from '@material/react-tab-bar'
 import MaterialIcon from '@material/react-material-icon'
 import LinearProgress from '@material/react-linear-progress'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
 
 import logo from '../assets/logo.png'
 
