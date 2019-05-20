@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Snackbar } from '@material/react-snackbar'
-import { Grid, Cell, Row } from '@material/react-layout-grid'
 
 import '@material/react-layout-grid/dist/layout-grid.css';
 import '@material/react-snackbar/dist/snackbar.css';

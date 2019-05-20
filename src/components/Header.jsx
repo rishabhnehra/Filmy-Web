@@ -43,7 +43,7 @@ class Header extends Component {
                     <TopAppBarRow>
                         <TopAppBarSection align='start'>
                             <TopAppBarIcon navIcon tabIndex={0}>
-                                <img src={logo} />
+                                <img src={logo} alt="Filmy logo"/>
                             </TopAppBarIcon>
                             <TopAppBarTitle>Filmy</TopAppBarTitle>
                         </TopAppBarSection>
