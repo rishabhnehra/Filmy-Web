@@ -11,7 +11,7 @@ const MovieGrid = ({ data, history }) => {
             <Row>
                 {data.results && data.results.map(result =>
                     <Cell key={result.id} onClick={() => history.push(`/movie/${result.id}`)} className="flex flex-center" columns={2}>
-                        <img src={`https://image.tmdb.org/t/p/w300/${result.poster_path}`} alt={result.title} />
+                        <img src={`https://image.tmdb.org/t/p/w300${result.poster_path}`} alt={result.title} />
                     </Cell>)}
             </Row>
         </Grid>
