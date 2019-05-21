@@ -70,10 +70,15 @@ code {
   padding-top: 20px;
 }
 
+.movie_stats > li:nth-child(2) {
+  padding-bottom: 0px;
+}
+
 .movie_stats > li:nth-last-child(1) {
   padding-bottom: 20px;
 }
 
 .chip {
   margin-left: 7px;
+  margin-bottom: 3px;
 }

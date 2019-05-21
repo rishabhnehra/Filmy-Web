@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getMovie, getCredtis, getSimilar } from './actions'
 import { Snackbar } from '@material/react-snackbar'
-import { ChipSet, Chip } from '@material/react-chips'
+import { Chip } from '@material/react-chips'
 import '@material/react-snackbar/dist/snackbar.css';
 import "@material/react-chips/dist/chips.css";
 
