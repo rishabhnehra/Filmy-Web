@@ -30,7 +30,7 @@ class Header extends Component {
     }
 
     componentDidMount = () => {
-        this.props.history.push('/popular')
+        // this.props.history.push('/popular')
     }
 
     handleActiveIndexUpdate = (activeIndex) => this.setState({ activeIndex })

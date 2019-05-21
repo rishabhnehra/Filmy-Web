@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getMovie, getCredtis, getSimilar } from './actions'
 import { Snackbar } from '@material/react-snackbar'
+import { ChipSet, Chip } from '@material/react-chips'
 import '@material/react-snackbar/dist/snackbar.css';
+import "@material/react-chips/dist/chips.css";
 
 const mapStateToProps = (state) => ({
     movie: state.movie,
@@ -32,13 +34,17 @@ class Movie extends Component {
         return (
             <div>
                 < div >
-                    <img src={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`}></img>
-                    <h1>{details.title}</h1>
-                    <h3>{details.tagline}</h3>
-                    <p>{details.overview}</p>
-                    <ul>
+                    <section className="backdrop">
+                        <img src={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`} />
+                    </section>
+                    <section className="movie_header">
+                        <p className="movie_title">{details.title}</p>
+                        <p className="movie_tagline">{details.tagline}</p>
+                        <p className="movie_overview">{details.overview}</p>
+                    </section>
+                    <ul className="movie_stats">
                         <li>Runtime: {details.runtime} mins</li>
-                        <li>Genre: {details.genres && details.genres.map((genre) => <span key={genre.name}>{genre.name}</span>)}</li>
+                        <li>Genre: {details.genres && details.genres.map((genre, index) => <Chip className="chip" key={genre.name} label={genre.name} />)}</li>
                         <li>Language: {details.original_language}</li>
                         <li>Release Date: {details.release_date}</li>
                     </ul>
