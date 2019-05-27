@@ -51,7 +51,7 @@ class Movie extends Component {
                         <li>Release Date: {details.release_date}</li>
                     </ul>
                     <section>
-                        <h2>Cast</h2>
+                        <h2>Cast </h2>
                         <ul>
                             {credits.cast && credits.cast.map((cast => <Link to={`/person/${cast.id}`}><li key={cast.id}>{cast.name}</li></Link>))}
                         </ul>
