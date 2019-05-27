@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom'
 import { getMovie, getCredtis, getSimilar } from './actions'
 import { Snackbar } from '@material/react-snackbar'
 import { Chip } from '@material/react-chips'
+import { } from '@material/react-list'
 import '@material/react-snackbar/dist/snackbar.css';
 import "@material/react-chips/dist/chips.css";
+import '@material/react-list/dist/list.css';
 
 const mapStateToProps = (state) => ({
     movie: state.movie,
@@ -48,10 +50,12 @@ class Movie extends Component {
                         <li>Language: {details.original_language}</li>
                         <li>Release Date: {details.release_date}</li>
                     </ul>
-                    <h2>Cast</h2>
-                    <ul>
-                        {credits.cast && credits.cast.map((cast => <Link to={`/person/${cast.id}`}><li key={cast.id}>{cast.name}</li></Link>))}
-                    </ul>
+                    <section>
+                        <h2>Cast</h2>
+                        <ul>
+                            {credits.cast && credits.cast.map((cast => <Link to={`/person/${cast.id}`}><li key={cast.id}>{cast.name}</li></Link>))}
+                        </ul>
+                    </section>
                     <h2>Crew</h2>
                     <ul>
                         {credits.crew && credits.crew.map((crew) => <li key={crew.id}>{crew.name}</li>)}
