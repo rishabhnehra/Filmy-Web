@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { getMovie, getCredtis, getSimilar } from './actions'
 import { Snackbar } from '@material/react-snackbar'
 import { Chip } from '@material/react-chips'
-import { } from '@material/react-list'
+import List, { ListItem, ListItemText, ListItemGraphic } from '@material/react-list'
+
 import '@material/react-snackbar/dist/snackbar.css';
 import "@material/react-chips/dist/chips.css";
 import '@material/react-list/dist/list.css';
@@ -52,14 +53,34 @@ class Movie extends Component {
                     </ul>
                     <section>
                         <h2>Cast </h2>
-                        <ul>
-                            {credits.cast && credits.cast.map((cast => <Link to={`/person/${cast.id}`}><li key={cast.id}>{cast.name}</li></Link>))}
-                        </ul>
+                        <List twoLine>
+                            {credits.cast && credits.cast.map((cast =>
+                                <ListItem key={cast.id}>
+                                    <ListItemGraphic graphic={<img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} />} />
+                                    <ListItemText
+                                        primaryText={cast.name}
+                                        secondaryText={cast.character}
+                                    />
+                                </ListItem>
+                            ))
+                            }
+                        </List>
                     </section>
-                    <h2>Crew</h2>
-                    <ul>
-                        {credits.crew && credits.crew.map((crew) => <li key={crew.id}>{crew.name}</li>)}
-                    </ul>
+                    <section>
+                        <h2>Crew</h2>
+                        <List twoLine>
+                            {credits.crew && credits.crew.map((crew =>
+                                <ListItem key={crew.id}>
+                                    <ListItemGraphic graphic={<img src={`https://image.tmdb.org/t/p/w200/${crew.profile_path}`} />} />
+                                    <ListItemText
+                                        primaryText={crew.name}
+                                        secondaryText={crew.department}
+                                    />
+                                </ListItem>
+                            ))
+                            }
+                        </List>
+                    </section>
                     <h2>
                         Similar
                         </h2>
