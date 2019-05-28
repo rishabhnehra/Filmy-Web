@@ -32,11 +32,20 @@ class Movie extends Component {
         isCrewDialogOpen: false
     }
 
-    componentDidMount() {
-        const { id } = this.props.match.params
+    getAllDetails = (id) => {
         this.props.getCredtis(id)
         this.props.getMovie(id)
-        this.props.getSimilar(id)
+        this.props.getSimilar(id)        
+    }
+
+    componentDidMount() {
+        const { id } = this.props.match.params
+        this.getAllDetails(id)
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps.match.params.id !== this.props.match.params.id)
+            this.getAllDetails(this.props.match.params.id)
     }
 
     render() {
