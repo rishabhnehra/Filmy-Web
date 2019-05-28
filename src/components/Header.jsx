@@ -43,7 +43,7 @@ class Header extends Component {
                     <TopAppBarRow>
                         <TopAppBarSection align='start'>
                             <TopAppBarIcon navIcon tabIndex={0}>
-                                <img src={logo} alt="Filmy logo"/>
+                                <img src={logo} alt="Filmy logo" />
                             </TopAppBarIcon>
                             <TopAppBarTitle>Filmy</TopAppBarTitle>
                         </TopAppBarSection>
@@ -57,23 +57,7 @@ class Header extends Component {
                     </TopAppBarRow>
                     {isFetching && <LinearProgress indeterminate />}
                 </TopAppBar>
-
                 <TopAppBarFixedAdjust />
-
-                <TabBar
-                    activeIndex={this.state.activeIndex}
-                    handleActiveIndexUpdate={this.handleActiveIndexUpdate}
-                >
-                    <Tab onClick={() => this.props.history.push('/popular')}>
-                        <span className='mdc-tab__text-label'>Popular</span>
-                    </Tab>
-                    <Tab onClick={() => this.props.history.push('/now_playing')}>
-                        <span className='mdc-tab__text-label'>Now Playing</span>
-                    </Tab>
-                    <Tab onClick={() => this.props.history.push('/upcoming')}>
-                        <span className='mdc-tab__text-label'>Upcoming</span>
-                    </Tab>
-                </TabBar>
             </div>
         )
     }

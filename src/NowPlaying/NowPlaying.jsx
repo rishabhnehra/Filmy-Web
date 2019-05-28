@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { getNowPlaying } from './actions'
 import { Snackbar } from '@material/react-snackbar'
 import '@material/react-snackbar/dist/snackbar.css';
 
 import MovieGrid from '../components/MovieGrid'
-
+import HeaderTab from '../components/HeaderTab'
+import { getNowPlaying } from './actions'
 
 class NowPlaying extends Component {
 
@@ -15,12 +15,13 @@ class NowPlaying extends Component {
 
     render() {
         const { data } = this.props.nowPlaying
-        const { isFetching, message} = this.props.fetching
+        const { isFetching, message } = this.props.fetching
         return (
             <Fragment>
+                <HeaderTab />
                 <MovieGrid data={data} />
                 {isFetching && <Snackbar message={message} />}
-                {message && <Snackbar message={message}/>}
+                {message && <Snackbar message={message} />}
             </Fragment>
         )
     }
