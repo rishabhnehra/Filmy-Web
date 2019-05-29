@@ -16,6 +16,10 @@ export const FETCH_SIMILAR = "FETCH_SIMILAR"
 export const FETCH_SIMILAR_SUCCESS = "FETCH_SIMILAR_SUCCESS"
 export const FETCH_SIMILAR_FAIL = "FETCH_SIMILAR_FAIL"
 
+export const FETCH_RATINGS = "FETCH_RATINGS"
+export const FETCH_RATINGS_SUCCESS = "FETCH_RATINGS_SUCCESS"
+export const FETCH_RATINGS_FAIL = "FETCH_RATINGS_FAIL"
+
 export const fetchMovie = () => ({
     type: FETCH_MOVIE_ID,
 })
@@ -29,6 +33,8 @@ export const fetchMovieFail = (error) => ({
     type: FETCH_MOVIE_ID_FAIL,
     error
 })
+
+
 
 export const fetchCredits = () => ({
     type: FETCH_CREDITS
@@ -44,6 +50,8 @@ export const fetchCreditsFail = (error) => ({
     error
 })
 
+
+
 export const fetchSimilar = () => ({
     type: FETCH_SIMILAR
 })
@@ -58,13 +66,28 @@ export const fetchSimilarFail = (error) => ({
     error
 })
 
+
+export const fetchRatings = () => ({
+    type: FETCH_RATINGS
+})
+
+export const fetchRatingsSuccess = (data) => ({
+    type: FETCH_RATINGS_SUCCESS,
+    data
+})
+
+export const fetchRatingsFail = (error) => ({
+    type: FETCH_RATINGS_FAIL,
+    error
+})
+
 export const getMovie = (id) => {
     return (dispatch) => {
         dispatch(fetchingData())
         dispatch(fetchMovie())
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
             .then(response => {
-                if(response.ok) return response.json()
+                if (response.ok) return response.json()
                 throw new Error(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
@@ -84,7 +107,7 @@ export const getCredtis = (id) => {
         dispatch(fetchCredits())
         fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
             .then(response => {
-                if(response.ok) return response.json()
+                if (response.ok) return response.json()
                 throw new Error(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
@@ -108,12 +131,33 @@ export const getSimilar = (id) => {
                 throw new Error(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
-                dispatch(fetchSimilarSuccess(data))
+                const { Ratings } = data
+                dispatch(fetchSimilarSuccess(Ratings))
                 dispatch(fetchDataSuccessful())
             })
             .catch(error => {
                 dispatch(fetchSimilarFail(error))
                 dispatch(fetchDataFail(error))
             })
+    }
+}
+
+export const getRatings = (id) => {
+    return (dispatch) => {
+        dispatch(fetchRatings())
+        dispatch(fetchingData())
+        fetch(`http://www.omdbapi.com/?i=${id}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`)
+        .then(response => {
+            if( response.ok ) return response.json()
+            throw new Error(`Error ${response.status} : ${response.statusText}`)
+        })
+        .then(data => {
+            dispatch(fetchRatingsSuccess(data))
+            dispatch(fetchDataSuccessful())
+        })
+        .catch(error => {
+            dispatch(fetchRatingsFail(error))
+            dispatch(fetchDataFail(error))
+        })
     }
 }

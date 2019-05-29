@@ -39,7 +39,6 @@ const store = createStore(reducers, composeEnhancers(
 
 ReactDOM.render(
     <Provider store={store} >
-
         <Router>
             <Route path="/" component={Header} />
             <Route exact path="/popular" component={Popular} />

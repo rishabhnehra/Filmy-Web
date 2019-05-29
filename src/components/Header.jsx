@@ -25,15 +25,9 @@ import '@material/react-tab-scroller/dist/tab-scroller.css';
 
 class Header extends Component {
 
-    state = {
-        activeIndex: 0,
-    }
-
     componentDidMount = () => {
         // this.props.history.push('/popular')
     }
-
-    handleActiveIndexUpdate = (activeIndex) => this.setState({ activeIndex })
 
     render() {
         const { isFetching } = this.props.fetching

@@ -21,7 +21,7 @@ class Person extends Component {
         const { isFetching, message } = this.props.fetching
         return(
             <div>
-                {details.profile_path && <img src={`https://image.tmdb.org/t/p/w500/${details.profile_path}`}></img>}
+                {details.profile_path && <img src={`https://image.tmdb.org/t/p/w500/${details.profile_path}`}/> }
                 {/* <h3>{details.name}</h3> */}
                 <p>{details.birthday}</p>
                 <p>{details.biography}</p>
