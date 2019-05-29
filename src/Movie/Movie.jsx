@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getMovie, getCredtis, getSimilar } from './actions'
+import { getMovie, getCredtis, getSimilar, getRatings } from './actions'
 import { Snackbar } from '@material/react-snackbar'
 import { Chip } from '@material/react-chips'
 import List, { ListItem, ListItemText, ListItemGraphic } from '@material/react-list'
@@ -22,7 +22,8 @@ const mapStateToProps = (state) => ({
 const mapActionsToProps = (dispatch) => ({
     getMovie: (id) => dispatch(getMovie(id)),
     getCredtis: (id) => dispatch(getCredtis(id)),
-    getSimilar: (id) => dispatch(getSimilar(id))
+    getSimilar: (id) => dispatch(getSimilar(id)),
+    getRatings: (id) => dispatch(getRatings(id))
 })
 
 class Movie extends Component {
@@ -32,10 +33,10 @@ class Movie extends Component {
         isCrewDialogOpen: false
     }
 
-    getAllDetails = (id) => {
-        this.props.getCredtis(id)
+    getAllDetails = async (id) => {
         this.props.getMovie(id)
-        this.props.getSimilar(id)        
+        this.props.getCredtis(id)
+        this.props.getSimilar(id)
     }
 
     componentDidMount() {

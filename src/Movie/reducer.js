@@ -17,7 +17,7 @@ const initialState = {
     details: {},
     credits: {},
     similar: {},
-    rating: {}
+    ratings: {}
 }
 
 export const movieReducer = (state = initialState, action) => {
@@ -49,14 +49,14 @@ export const movieReducer = (state = initialState, action) => {
             }
         case FETCH_SIMILAR_FAIL:
             return state
-        case FETCH_CREDITS:
+        case FETCH_RATINGS:
             return state
-        case FETCH_CREDITS_SUCCESS:
+        case FETCH_RATINGS_SUCCESS:
             return {
                 ...state,
                 ratings: action.data
             }
-        case FETCH_CREDITS_FAIL:
+        case FETCH_RATINGS_FAIL:
             return state
         default:
             return state

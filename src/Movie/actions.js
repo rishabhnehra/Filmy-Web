@@ -93,6 +93,7 @@ export const getMovie = (id) => {
             .then(data => {
                 dispatch(fetchDataSuccessful())
                 dispatch(fetchMovieSuccess(data))
+                dispatch(getRatings(data.imdb_id))  //For fetching rating related data from OMDB
             })
             .catch(error => {
                 dispatch(fetchDataFail(error))
@@ -131,8 +132,7 @@ export const getSimilar = (id) => {
                 throw new Error(`Error ${response.status} : ${response.statusText}`)
             })
             .then(data => {
-                const { Ratings } = data
-                dispatch(fetchSimilarSuccess(Ratings))
+                dispatch(fetchSimilarSuccess(data))
                 dispatch(fetchDataSuccessful())
             })
             .catch(error => {
