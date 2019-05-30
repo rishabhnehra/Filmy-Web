@@ -17,7 +17,7 @@ const Ratings = ({ ratings, tmdbRating }) => {
                 <img src={images[critic.Source]} alt={critic.Source}/>
                 <p>{critic.Value}</p>
             </div>)}
-            <div>
+            <div className="critic">
                 <img src={tmdb} alt="The Movie Database" />
                 <p>{tmdbRating}</p>
             </div>

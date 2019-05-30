@@ -86,3 +86,23 @@ code {
 .crew {
   padding: 15px;
 }
+
+.ratings {
+  background: #636e72;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+}
+
+.critic {
+  margin: 1.5rem;
+}
+
+.critic img {
+  width: 6rem;
+}
+
+.critic p {
+  text-align: center;
+  margin: 5px 5px 0 5px;
+}
