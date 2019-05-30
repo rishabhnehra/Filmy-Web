@@ -17,7 +17,7 @@ const initialState = {
     details: {},
     credits: {},
     similar: {},
-    ratings: {}
+    ratings: []
 }
 
 export const movieReducer = (state = initialState, action) => {

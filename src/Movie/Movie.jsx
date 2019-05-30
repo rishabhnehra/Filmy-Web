@@ -13,6 +13,7 @@ import '@material/react-button/dist/button.css';
 
 import DialogList from '../components/DialogList'
 import MovieGrid from '../components/MovieGrid'
+import Ratings from '../components/Ratings'
 
 const mapStateToProps = (state) => ({
     movie: state.movie,
@@ -51,7 +52,7 @@ class Movie extends Component {
 
     render() {
         const { isCastDialogOpen, isCrewDialogOpen } = this.state
-        const { details, credits, similar } = this.props.movie
+        const { details, credits, similar, ratings } = this.props.movie
         const { isFetching, message } = this.props.fetching
         return (
             <div>
@@ -63,6 +64,7 @@ class Movie extends Component {
                     <p className="movie_tagline">{details.tagline}</p>
                     <p className="movie_overview">{details.overview}</p>
                 </section>
+                <Ratings ratings={ratings} tmdbRating={details.vote_average} />
                 <ul className="movie_stats">
                     <li>Runtime: {details.runtime} mins</li>
                     <li>Genre: {details.genres && details.genres.map((genre, index) => <Chip className="chip" key={genre.name} label={genre.name} />)}</li>

@@ -152,7 +152,7 @@ export const getRatings = (id) => {
             throw new Error(`Error ${response.status} : ${response.statusText}`)
         })
         .then(data => {
-            dispatch(fetchRatingsSuccess(data))
+            dispatch(fetchRatingsSuccess(data.Ratings))
             dispatch(fetchDataSuccessful())
         })
         .catch(error => {
