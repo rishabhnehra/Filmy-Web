@@ -20,6 +20,10 @@ export const FETCH_RATINGS = "FETCH_RATINGS"
 export const FETCH_RATINGS_SUCCESS = "FETCH_RATINGS_SUCCESS"
 export const FETCH_RATINGS_FAIL = "FETCH_RATINGS_FAIL"
 
+export const FETCH_VIDEOS = "FETCH_VIDEOS"
+export const FETCH_VIDEOS_SUCCESS = "FETCH_VIDEOS_SUCCESS"
+export const FETCH_VIDEOS_FAIL = "FETCH_VIDEOS_FAIL"
+
 export const fetchMovie = () => ({
     type: FETCH_MOVIE_ID,
 })
@@ -80,6 +84,21 @@ export const fetchRatingsFail = (error) => ({
     type: FETCH_RATINGS_FAIL,
     error
 })
+
+export const fetchVideos = () => ({
+    type: FETCH_VIDEOS
+})
+
+export const fetchVideosSuccess = (data) => ({
+    type: FETCH_VIDEOS_SUCCESS,
+    data
+})
+
+export const fetchVideosFail = (error) => ({
+    type: FETCH_VIDEOS_FAIL,
+    error
+})
+
 
 export const getMovie = (id) => {
     return (dispatch) => {
@@ -142,17 +161,37 @@ export const getSimilar = (id) => {
     }
 }
 
-export const getRatings = (id) => {
+export const getRatings = (imdb_id) => {
     return (dispatch) => {
         dispatch(fetchRatings())
         dispatch(fetchingData())
-        fetch(`http://www.omdbapi.com/?i=${id}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`)
+        fetch(`http://www.omdbapi.com/?i=${imdb_id}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`)
         .then(response => {
             if( response.ok ) return response.json()
             throw new Error(`Error ${response.status} : ${response.statusText}`)
         })
         .then(data => {
             dispatch(fetchRatingsSuccess(data.Ratings))
+            dispatch(fetchDataSuccessful())
+        })
+        .catch(error => {
+            dispatch(fetchRatingsFail(error))
+            dispatch(fetchDataFail(error))
+        })
+    }
+}
+
+export const getVideos = (id) => {
+    return (dispatch) => {
+        dispatch(fetchingData())
+        dispatch(fetchVideos())
+        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        .then(response => {
+            if(response.ok) return response.json()
+            throw new Error(`Error ${response.status} : ${response.statusText}`)
+        })
+        .then(data => {
+            dispatch(fetchVideosSuccess(data.results))
             dispatch(fetchDataSuccessful())
         })
         .catch(error => {

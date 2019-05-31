@@ -10,14 +10,18 @@ import {
     FETCH_SIMILAR_SUCCESS,
     FETCH_RATINGS,
     FETCH_RATINGS_SUCCESS,
-    FETCH_RATINGS_FAIL
+    FETCH_RATINGS_FAIL,
+    FETCH_VIDEOS,
+    FETCH_VIDEOS_FAIL,
+    FETCH_VIDEOS_SUCCESS
 } from './actions'
 
 const initialState = {
     details: {},
     credits: {},
     similar: {},
-    ratings: []
+    ratings: [],
+    videos: []
 }
 
 export const movieReducer = (state = initialState, action) => {
@@ -57,6 +61,15 @@ export const movieReducer = (state = initialState, action) => {
                 ratings: action.data
             }
         case FETCH_RATINGS_FAIL:
+            return state
+        case FETCH_VIDEOS:
+            return state
+        case FETCH_VIDEOS_SUCCESS:
+            return {
+                ...state,
+                videos: action.data
+            }
+        case FETCH_VIDEOS_FAIL:
             return state
         default:
             return state

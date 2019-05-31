@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getMovie, getCredtis, getSimilar, getRatings } from './actions'
+import {
+    getMovie,
+    getCredtis,
+    getSimilar,
+    getRatings,
+    getVideos
+} from './actions'
 import { Snackbar } from '@material/react-snackbar'
 import { Chip } from '@material/react-chips'
 import List, { ListItem, ListItemText, ListItemGraphic } from '@material/react-list'
@@ -25,7 +31,8 @@ const mapActionsToProps = (dispatch) => ({
     getMovie: (id) => dispatch(getMovie(id)),
     getCredtis: (id) => dispatch(getCredtis(id)),
     getSimilar: (id) => dispatch(getSimilar(id)),
-    getRatings: (id) => dispatch(getRatings(id))
+    getRatings: (id) => dispatch(getRatings(id)),
+    getVideos: (id) => dispatch(getVideos(id))
 })
 
 class Movie extends Component {
@@ -39,6 +46,7 @@ class Movie extends Component {
         this.props.getMovie(id)
         this.props.getCredtis(id)
         this.props.getSimilar(id)
+        this.props.getVideos(id)
     }
 
     componentDidMount() {
@@ -47,13 +55,13 @@ class Movie extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.match.params.id !== this.props.match.params.id)
+        if (prevProps.match.params.id !== this.props.match.params.id)
             this.getAllDetails(this.props.match.params.id)
     }
 
     render() {
         const { isCastDialogOpen, isCrewDialogOpen } = this.state
-        const { details, credits, similar, ratings } = this.props.movie
+        const { details, credits, similar, ratings, videos } = this.props.movie
         const { isFetching, message } = this.props.fetching
         return (
             <div>
@@ -65,7 +73,7 @@ class Movie extends Component {
                     <p className="movie_tagline">{details.tagline}</p>
                     <p className="movie_overview">{details.overview}</p>
                 </section>
-                <Youtube 
+                <Youtube videos={videos} />
                 <Ratings ratings={ratings} tmdbRating={details.vote_average} />
                 <ul className="movie_stats">
                     <li>Runtime: {details.runtime} mins</li>
