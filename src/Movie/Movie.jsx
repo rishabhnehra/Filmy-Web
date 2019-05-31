@@ -14,6 +14,7 @@ import '@material/react-button/dist/button.css';
 import DialogList from '../components/DialogList'
 import MovieGrid from '../components/MovieGrid'
 import Ratings from '../components/Ratings'
+import Youtube from '../components/Youtube'
 
 const mapStateToProps = (state) => ({
     movie: state.movie,
@@ -64,6 +65,7 @@ class Movie extends Component {
                     <p className="movie_tagline">{details.tagline}</p>
                     <p className="movie_overview">{details.overview}</p>
                 </section>
+                <Youtube 
                 <Ratings ratings={ratings} tmdbRating={details.vote_average} />
                 <ul className="movie_stats">
                     <li>Runtime: {details.runtime} mins</li>
