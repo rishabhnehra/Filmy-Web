@@ -82,14 +82,14 @@ class Movie extends Component {
                     <li>Release Date: {details.release_date}</li>
                 </ul>
                 <section className="cast">
-                    <div>
+                    <div className="cast__header">
                         <h2>Cast</h2>
                         <Button onClick={() => this.setState({ isCastDialogOpen: true })}>More</Button>
                     </div>
                     <List twoLine>
                         {credits.cast && credits.cast.slice(0, 5).map((cast =>
                             <ListItem key={cast.id} onClick={() => this.props.history.push(`/person/${cast.id}`)}>
-                                <ListItemGraphic graphic={<img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} />} />
+                                <ListItemGraphic className="cast__profile_pic" graphic={<img  src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} />} />
                                 <ListItemText
                                     primaryText={cast.name}
                                     secondaryText={cast.character}
@@ -100,8 +100,8 @@ class Movie extends Component {
                     </List>
                 </section>
                 <hr />
-                <section className="crew">
-                    <div>
+                <section className="cast">
+                    <div className="cast__header">
                         <h2>Crew</h2>
                         <Button onClick={() => this.setState({ isCrewDialogOpen: true })}>More</Button>
                     </div>
@@ -109,7 +109,7 @@ class Movie extends Component {
                     <List twoLine>
                         {credits.crew && credits.crew.slice(0, 5).map((crew =>
                             <ListItem key={crew.id} onClick={() => this.props.history.push(`/person/${crew.id}`)}>
-                                <ListItemGraphic graphic={<img src={`https://image.tmdb.org/t/p/w200/${crew.profile_path}`} />} />
+                                <ListItemGraphic className="cast__profile_pic" graphic={<img src={`https://image.tmdb.org/t/p/w200/${crew.profile_path}`} />} />
                                 <ListItemText
                                     primaryText={crew.name}
                                     secondaryText={crew.department}
@@ -119,7 +119,7 @@ class Movie extends Component {
                         }
                     </List>
                 </section>
-                <section>
+                <section className="similar">
                     <h2>Similar</h2>
                     <MovieGrid data={similar} />
                 </section>

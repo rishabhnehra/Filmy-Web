@@ -41,11 +41,11 @@ code {
   background: #34495e;
   color: #FFF;
   margin-top: -6px;
-  padding: 9px;
+  padding: 1.5rem 0.5rem 0.6rem 0.5rem;
 }
 
 .movie_title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: 10px 15px 5px 15px;
 }
 
@@ -56,13 +56,14 @@ code {
 
 .movie_overview {
   line-height: 1.4rem;
-  padding: 20px 15px;
+  /* padding: 20px 15px; */
+  padding: 1.5rem 1rem;
 }
 
 .movie_stats {
   background: #636e72;
   color: #FFF;
-  padding:23px;
+  padding: 1.5rem 1rem;
 }
 
 .movie_stats > li {
@@ -80,12 +81,25 @@ code {
 }
 
 .cast {
-  padding: 15px;
+  padding: 1.5rem 1rem;
 }
 
-.crew {
-  padding: 15px;
+.cast__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.cast__profile_pic {
+  width: 3rem !important;
+  height: 3rem !important;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* .crew {
+  padding: 15px;
+} */
 
 .ratings {
   background: #636e72;
@@ -95,25 +109,30 @@ code {
 }
 
 .critic {
-  margin: 1.5rem;
+  margin: 1.5rem 0.5rem;
 }
 
 .critic img {
-  width: 6rem;
+  width: 3rem;
 }
 
 .critic p {
+  font-size: 0.8rem;
   text-align: center;
-  margin: 5px 5px 0 5px;
+  margin: 5px auto 0 auto;
 }
 
 .youtube {
   display: flex;
   overflow-x: scroll;
   width: 100%;
-  height: 52.56%;
+  /* height: 52.56%; */
 }
 
 .video {
   margin: 0.5rem 0.50rem;
+}
+
+.similar h2 {
+  padding: 1.5rem 1rem 0 1rem;
 }
