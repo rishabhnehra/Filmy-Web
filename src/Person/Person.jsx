@@ -5,6 +5,7 @@ import { Snackbar } from '@material/react-snackbar'
 import { Link } from 'react-router-dom'
 
 import { getPerson, getPersonMovieCredits } from './actions';
+import Movie from '../components/MovieGrid'
 
 import '@material/react-snackbar/dist/snackbar.css';
 
@@ -19,17 +20,22 @@ class Person extends Component {
     render() {
         const { details, movie_credits } = this.props.person
         const { isFetching, message } = this.props.fetching
-        return(
+        return (
             <div>
-                {details.profile_path && <img src={`https://image.tmdb.org/t/p/w500/${details.profile_path}`}/> }
-                {/* <h3>{details.name}</h3> */}
-                <p>{details.birthday}</p>
-                <p>{details.biography}</p>
-                <ul>
-                    {movie_credits.cast && movie_credits.cast.map(cast => <Link to={`/movie/${cast.id}`}><li>{cast.title} - {cast.character}</li></Link>)}
-                </ul>
+                <div className="flex person__hero">
+                    {details.profile_path && <img className="cast__profile_pic cast__profile_pic--large" src={`https://image.tmdb.org/t/p/w500/${details.profile_path}`} />}
+                    <div className="person__hero__details">
+                        <h3>{details.name}</h3>
+                        <p>{details.birthday}</p>
+                        <p>{details.place_of_birth}</p>
+                    </div>
+                </div>
+                <div className="person__biography">
+                    <p>{details.biography}</p>
+                </div>
+                {movie_credits.cast && movie_credits.cast.map(cast => <Link to={`/movie/${cast.id}`}><li>{cast.title} - {cast.character}</li></Link>)}
                 {isFetching && <Snackbar message={message} />}
-                {message && <Snackbar message={message}/>}
+                {message && <Snackbar message={message} />}
             </div>
         )
     }
@@ -42,7 +48,7 @@ const mapStateToProps = (state) => ({
 
 const mapActionToProps = (dispatch) => ({
     getPerson: (id) => dispatch(getPerson(id)),
-    getPersonMovieCredits : (id) => dispatch(getPersonMovieCredits(id))
+    getPersonMovieCredits: (id) => dispatch(getPersonMovieCredits(id))
 })
 
 Person.propTypes = {
