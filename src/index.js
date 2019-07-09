@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import ReduxThunk from 'redux-thunk'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './index.css'
 
@@ -14,7 +14,7 @@ import NowPlaying from './NowPlaying/NowPlaying'
 import UpComing from './UpComing/UpComing'
 import Movie from './Movie/Movie'
 import Person from './Person/Person'
-import HeaderTab from './HeaderTab/HeaderTab'
+import HeaderTab from './components/HeaderTab'
 
 import { popularReducer } from './Popular/reducer'
 import { nowPlayingReducer } from './NowPlaying/reducer'
@@ -45,10 +45,10 @@ ReactDOM.render(
             <Route exact path="/movie/:id" component={Movie} />
             <Route exact path="/person/:id" component={Person} />
             <div>
-                <HeaderTab />
+                <Route path={["/popular", "/now_playing", "/upcoming"]} component={HeaderTab} />
                 <Route exact path="/popular" component={Popular} />
                 <Route exact path="/now_playing" component={NowPlaying} />
-                <Route exact path="/upcoming" component={UpComing} />Î
+                <Route exact path="/upcoming" component={UpComing} />
             </div>
         </Router>
     </Provider>, document.getElementById('root'));

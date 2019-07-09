@@ -26,7 +26,7 @@ import '@material/react-tab-scroller/dist/tab-scroller.css';
 class Header extends Component {
 
     componentDidMount = () => {
-        // this.props.history.push('/popular')
+        this.props.history.push('/popular')
     }
 
     render() {

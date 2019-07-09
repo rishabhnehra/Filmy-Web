@@ -6,7 +6,7 @@ import '@material/react-layout-grid/dist/layout-grid.css';
 import '@material/react-snackbar/dist/snackbar.css';
 
 import MovieGrid from '../components/MovieGrid'
-import HeaderTab from '../HeaderTab/HeaderTab'
+import HeaderTab from '../components/HeaderTab'
 import { getPopular } from './actions'
 
 class Popular extends Component {

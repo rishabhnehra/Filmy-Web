@@ -4,7 +4,7 @@ import { Snackbar } from '@material/react-snackbar'
 import '@material/react-snackbar/dist/snackbar.css';
 
 import MovieGrid from '../components/MovieGrid'
-import HeaderTab from '../HeaderTab/HeaderTab'
+import HeaderTab from '../components/HeaderTab'
 import { getNowPlaying } from './actions'
 
 class NowPlaying extends Component {
