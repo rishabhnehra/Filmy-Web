@@ -6,7 +6,7 @@ import '@material/react-layout-grid/dist/layout-grid.css';
 import '@material/react-snackbar/dist/snackbar.css';
 
 import MovieGrid from '../components/MovieGrid'
-import HeaderTab from '../components/HeaderTab'
+import HeaderTab from '../HeaderTab/HeaderTab'
 import { getPopular } from './actions'
 
 class Popular extends Component {
@@ -20,8 +20,8 @@ class Popular extends Component {
         const { isFetching, message } = this.props.fetching
         return (
             <div>
-                <HeaderTab />
-                <MovieGrid data={data} />
+                {/* <HeaderTab /> */}
+                <MovieGrid data={data.results} />
                 {isFetching && <Snackbar message={message} />}
                 {message && <Snackbar message={message} />}
             </div>

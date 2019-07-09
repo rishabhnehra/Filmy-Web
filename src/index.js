@@ -14,6 +14,7 @@ import NowPlaying from './NowPlaying/NowPlaying'
 import UpComing from './UpComing/UpComing'
 import Movie from './Movie/Movie'
 import Person from './Person/Person'
+import HeaderTab from './HeaderTab/HeaderTab'
 
 import { popularReducer } from './Popular/reducer'
 import { nowPlayingReducer } from './NowPlaying/reducer'
@@ -41,11 +42,14 @@ ReactDOM.render(
     <Provider store={store} >
         <Router>
             <Route path="/" component={Header} />
-            <Route exact path="/popular" component={Popular} />
-            <Route exact path="/now_playing" component={NowPlaying} />
-            <Route exact path="/upcoming" component={UpComing} />
             <Route exact path="/movie/:id" component={Movie} />
             <Route exact path="/person/:id" component={Person} />
+            <div>
+                <HeaderTab />
+                <Route exact path="/popular" component={Popular} />
+                <Route exact path="/now_playing" component={NowPlaying} />
+                <Route exact path="/upcoming" component={UpComing} />Î
+            </div>
         </Router>
     </Provider>, document.getElementById('root'));
 

@@ -4,7 +4,7 @@ import { Snackbar } from '@material/react-snackbar'
 import '@material/react-snackbar/dist/snackbar.css';
 
 import MovieGrid from '../components/MovieGrid'
-import HeaderTab from '../components/HeaderTab'
+import HeaderTab from '../HeaderTab/HeaderTab'
 import { getUpComing } from './actions'
 
 class UpComing extends Component {
@@ -18,8 +18,7 @@ class UpComing extends Component {
         const { isFetching, message } = this.props.fetching
         return (
             <Fragment>
-                <HeaderTab />
-                <MovieGrid data={data} />
+                <MovieGrid data={data.results} />
                 {isFetching && <Snackbar message={message} />}
                 {message && <Snackbar message={message} />}
             </Fragment>

@@ -146,14 +146,21 @@ code {
 /* Person component styling */
 
 .person__hero {
+  background: #34495e;
+  color: #FFF;
   padding: 1.5rem 1rem;
   align-items: center;
+  border: none;
 }
 
 .person__hero__details{
-  padding-left: 1r em;
+  margin-left: 1rem;
 }
 
 .person__biography {
+  margin-top: -6px;
   padding: 1.5rem 1rem;
+  background: #253546;
+  color: #FFF;
+  border: none;
 }

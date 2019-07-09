@@ -9,7 +9,10 @@ class HeaderTab extends Component {
         activeIndex: 0,
     }
 
-    handleActiveIndexUpdate = (activeIndex) => this.setState({ activeIndex })
+    handleActiveIndexUpdate = (activeIndex) => {
+        this.setState({ activeIndex })
+        console.log(activeIndex)
+    }
 
     render() {
         return (
@@ -30,5 +33,13 @@ class HeaderTab extends Component {
         )
     }
 }
+
+// const mapStateToProps = (state) => {
+//     activeIndex: state.activeIndex
+// }
+
+// const mapActionsToProps = (dispatch) => {
+
+// }
 
 export default withRouter(HeaderTab)
