@@ -5,7 +5,7 @@ import { Snackbar } from '@material/react-snackbar'
 import { Link } from 'react-router-dom'
 
 import { getPerson, getPersonMovieCredits } from './actions';
-import Movie from '../components/MovieGrid'
+import MovieGrid from '../components/MovieGrid'
 
 import '@material/react-snackbar/dist/snackbar.css';
 
@@ -33,7 +33,11 @@ class Person extends Component {
                 <div className="person__biography">
                     <p>{details.biography}</p>
                 </div>
-                {movie_credits.cast && movie_credits.cast.map(cast => <Link to={`/movie/${cast.id}`}><li>{cast.title} - {cast.character}</li></Link>)}
+                <section className="similar">
+                    <h2>Movies</h2>
+                    <MovieGrid data={movie_credits.cast} />
+                </section>
+                {/* {movie_credits.cast && movie_credits.cast.map(cast => <Link to={`/movie/${cast.id}`}><li>{cast.title} - {cast.character}</li></Link>)} */}
                 {isFetching && <Snackbar message={message} />}
                 {message && <Snackbar message={message} />}
             </div>

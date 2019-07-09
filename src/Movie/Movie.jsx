@@ -121,7 +121,7 @@ class Movie extends Component {
                 </section>
                 <section className="similar">
                     <h2>Similar</h2>
-                    <MovieGrid data={similar} />
+                    <MovieGrid data={similar.results} />
                 </section>
                 <DialogList isOpen={isCastDialogOpen} title='Cast' list={credits.cast} onClose={() => this.setState({ isCastDialogOpen: false })} />
                 <DialogList isOpen={isCrewDialogOpen} title='Crew' list={credits.crew} onClose={() => this.setState({ isCrewDialogOpen: false })} />
