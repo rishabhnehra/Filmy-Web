@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/filmy-web/static/css/main.5ba6027d.chunk.css",
-    "main.js": "/filmy-web/static/js/main.7b207c0b.chunk.js",
-    "main.js.map": "/filmy-web/static/js/main.7b207c0b.chunk.js.map",
-    "runtime~main.js": "/filmy-web/static/js/runtime~main.92434ed2.js",
-    "runtime~main.js.map": "/filmy-web/static/js/runtime~main.92434ed2.js.map",
-    "static/css/2.dfe7a5d7.chunk.css": "/filmy-web/static/css/2.dfe7a5d7.chunk.css",
-    "static/js/2.7bc21cbd.chunk.js": "/filmy-web/static/js/2.7bc21cbd.chunk.js",
-    "static/js/2.7bc21cbd.chunk.js.map": "/filmy-web/static/js/2.7bc21cbd.chunk.js.map",
-    "index.html": "/filmy-web/index.html",
-    "precache-manifest.f8ad2dbb1dec4b8a495e0786fb1c758f.js": "/filmy-web/precache-manifest.f8ad2dbb1dec4b8a495e0786fb1c758f.js",
-    "service-worker.js": "/filmy-web/service-worker.js",
-    "static/css/2.dfe7a5d7.chunk.css.map": "/filmy-web/static/css/2.dfe7a5d7.chunk.css.map",
-    "static/css/main.5ba6027d.chunk.css.map": "/filmy-web/static/css/main.5ba6027d.chunk.css.map",
-    "static/media/logo.png": "/filmy-web/static/media/logo.484df95f.png"
+    "main.css": "/Filmy-Web/static/css/main.5ba6027d.chunk.css",
+    "main.js": "/Filmy-Web/static/js/main.c611c4ec.chunk.js",
+    "main.js.map": "/Filmy-Web/static/js/main.c611c4ec.chunk.js.map",
+    "runtime~main.js": "/Filmy-Web/static/js/runtime~main.ae0f9c96.js",
+    "runtime~main.js.map": "/Filmy-Web/static/js/runtime~main.ae0f9c96.js.map",
+    "static/css/2.dfe7a5d7.chunk.css": "/Filmy-Web/static/css/2.dfe7a5d7.chunk.css",
+    "static/js/2.7bc21cbd.chunk.js": "/Filmy-Web/static/js/2.7bc21cbd.chunk.js",
+    "static/js/2.7bc21cbd.chunk.js.map": "/Filmy-Web/static/js/2.7bc21cbd.chunk.js.map",
+    "index.html": "/Filmy-Web/index.html",
+    "precache-manifest.3e18fd5e756d6f80a4aab717be6f1eca.js": "/Filmy-Web/precache-manifest.3e18fd5e756d6f80a4aab717be6f1eca.js",
+    "service-worker.js": "/Filmy-Web/service-worker.js",
+    "static/css/2.dfe7a5d7.chunk.css.map": "/Filmy-Web/static/css/2.dfe7a5d7.chunk.css.map",
+    "static/css/main.5ba6027d.chunk.css.map": "/Filmy-Web/static/css/main.5ba6027d.chunk.css.map",
+    "static/media/logo.png": "/Filmy-Web/static/media/logo.484df95f.png"
   }
 }
