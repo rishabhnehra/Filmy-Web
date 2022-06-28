@@ -2,7 +2,7 @@
   "name": "filmy-web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rishabhnehra.github.io/filmy-web",
+  "homepage": "https://rishabhnehra.github.io/Filmy-Web",
   "dependencies": {
     "@material/react-button": "^0.12.1",
     "@material/react-card": "^0.12.1",
