@@ -44,7 +44,7 @@ export const getPerson = (id) => {
     return (dispatch) => {
         dispatch(fetchingData())
         dispatch(fetchPerson())
-        fetch(`https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        fetch(`https://api.themoviedb.org/3/person/${id}?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
             .then(response => {
                 if (response.ok) return response.json()
                 throw new Error(`Error ${response.status} : ${response.statusText}`)
@@ -64,7 +64,7 @@ export const getPersonMovieCredits = (id) => {
     return (dispatch) => {
         dispatch(fetchingData())
         dispatch(fetchPersonMovieCredits())
-        fetch(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        fetch(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
             .then(response => {
                 if (response.ok) return response.json()
                 throw new Error(`Error ${response.status} : ${response.statusText}`)
