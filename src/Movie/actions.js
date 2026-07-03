@@ -104,7 +104,7 @@ export const getMovie = (id) => {
     return (dispatch) => {
         dispatch(fetchingData())
         dispatch(fetchMovie())
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
             .then(response => {
                 if (response.ok) return response.json()
                 throw new Error(`Error ${response.status} : ${response.statusText}`)
@@ -125,7 +125,7 @@ export const getCredtis = (id) => {
     return (dispatch) => {
         dispatch(fetchingData())
         dispatch(fetchCredits())
-        fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
             .then(response => {
                 if (response.ok) return response.json()
                 throw new Error(`Error ${response.status} : ${response.statusText}`)
@@ -145,7 +145,7 @@ export const getSimilar = (id) => {
     return (dispatch) => {
         dispatch(fetchingData())
         dispatch(fetchSimilar())
-        fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
             .then(response => {
                 if (response.ok) return response.json()
                 throw new Error(`Error ${response.status} : ${response.statusText}`)
@@ -165,7 +165,7 @@ export const getRatings = (imdb_id) => {
     return (dispatch) => {
         dispatch(fetchRatings())
         dispatch(fetchingData())
-        fetch(`http://www.omdbapi.com/?i=${imdb_id}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`)
+        fetch(`https://www.omdbapi.com/?i=${imdb_id}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`)
         .then(response => {
             if( response.ok ) return response.json()
             throw new Error(`Error ${response.status} : ${response.statusText}`)
@@ -185,7 +185,7 @@ export const getVideos = (id) => {
     return (dispatch) => {
         dispatch(fetchingData())
         dispatch(fetchVideos())
-        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${import.meta.env.VITE_TMDB_API_KEY}`)
         .then(response => {
             if(response.ok) return response.json()
             throw new Error(`Error ${response.status} : ${response.statusText}`)

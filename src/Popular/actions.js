@@ -3,7 +3,7 @@ import {
     fetchDataFail, 
     fetchDataSuccessful } from '../Fetching/actions'
 
-const getPopularList = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
+const getPopularList = `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
 
 export const FETCH_POPULAR = "FETCH_POPULAR"
 export const FETCH_POPULAR_SUCCESS = "FETCH_POPULAR_SUCCESS"

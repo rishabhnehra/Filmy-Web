@@ -3,7 +3,7 @@ import {
     fetchDataFail, 
     fetchDataSuccessful } from '../Fetching/actions'
 
-const getUpComingList = `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
+const getUpComingList = `https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
 
 export const FETCH_UP_COMING = "FETCH_UP_COMING"
 export const FETCH_UP_COMING_SUCCESS = "FETCH_UP_COMING_SUCCESS"

@@ -3,7 +3,7 @@ import {
     fetchDataFail, 
     fetchDataSuccessful } from '../Fetching/actions'
 
-const getNowPlayingList = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
+const getNowPlayingList = `https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
 
 export const FETCH_NOW_PLAYING = "FETCH_NOW_PLAYING"
 export const FETCH_NOW_PLAYING_SUCCESS = "FETCH_NOW_PLAYING_SUCCESS"
